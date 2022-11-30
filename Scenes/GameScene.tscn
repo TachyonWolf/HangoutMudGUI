@@ -1,0 +1,90 @@
+[gd_scene load_steps=5 format=3 uid="uid://lpq3opp603px"]
+
+[ext_resource type="PackedScene" uid="uid://c72kti2eflrgk" path="res://Scenes/WorldView/WorldView.tscn" id="1_gs8r4"]
+[ext_resource type="Script" path="res://Scenes/GameScene.gd" id="1_xhgri"]
+[ext_resource type="PackedScene" uid="uid://bmey8t0ankhx4" path="res://Scenes/GameItem/GameItemNode.tscn" id="3_pe6my"]
+[ext_resource type="PackedScene" uid="uid://dk3djpqv5e02a" path="res://Scenes/TopBar/TopBar.tscn" id="5_sj26c"]
+
+[node name="GameScreen" type="Control" node_paths=PackedStringArray("main_view", "top_bar", "world_node")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xhgri")
+main_view = NodePath("HSplitContainer/MainView")
+top_bar = NodePath("TopBar")
+world_node = NodePath("WorldNode")
+
+[node name="HSplitContainer" type="HSplitContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 33.0
+offset_bottom = -38.0
+grow_horizontal = 2
+grow_vertical = 2
+split_offset = 878
+
+[node name="MainView" parent="HSplitContainer" instance=ExtResource("1_gs8r4")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 878.0
+offset_bottom = 577.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="PlayerInfo" type="Panel" parent="HSplitContainer"]
+offset_left = 890.0
+offset_right = 1152.0
+offset_bottom = 577.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HSplitContainer/PlayerInfo"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Player Info!"
+
+[node name="PlayerInput" type="LineEdit" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 178.0
+offset_top = -31.0
+offset_right = -138.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="SubmitButton" type="Button" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -135.0
+offset_top = -33.0
+offset_right = -3.0
+offset_bottom = -2.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Submit"
+
+[node name="ActionOptionButton" type="OptionButton" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = -31.0
+offset_right = 175.0
+offset_bottom = -2.0
+grow_vertical = 0
+
+[node name="WorldNode" parent="." instance=ExtResource("3_pe6my")]
+carried_or_contained = 2
+
+[node name="TopBar" parent="." instance=ExtResource("5_sj26c")]

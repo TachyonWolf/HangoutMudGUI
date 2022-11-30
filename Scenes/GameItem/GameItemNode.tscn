@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmey8t0ankhx4"]
+
+[ext_resource type="Script" path="res://Scenes/GameItem/GameItemNode.gd" id="1_ichms"]
+
+[node name="GameItemNode" type="Node"]
+script = ExtResource("1_ichms")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]

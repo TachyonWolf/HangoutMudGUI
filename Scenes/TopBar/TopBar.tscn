@@ -1,0 +1,34 @@
+[gd_scene load_steps=2 format=3 uid="uid://dk3djpqv5e02a"]
+
+[ext_resource type="Script" path="res://Scenes/TopBar/TopBar.gd" id="1_6aml6"]
+
+[node name="TopBar" type="Control" node_paths=PackedStringArray("file_dropdown")]
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 28.0
+grow_horizontal = 2
+script = ExtResource("1_6aml6")
+file_dropdown = NodePath("Panel/HBoxContainer/FileButton")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FileButton" type="MenuButton" parent="Panel/HBoxContainer"]
+layout_mode = 2
+offset_right = 35.0
+offset_bottom = 31.0
+text = "File"

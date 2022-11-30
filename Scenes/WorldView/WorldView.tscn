@@ -1,0 +1,104 @@
+[gd_scene load_steps=3 format=3 uid="uid://c72kti2eflrgk"]
+
+[ext_resource type="Script" path="res://Scenes/WorldView/WorldView.gd" id="1_jm0uc"]
+[ext_resource type="Texture2D" uid="uid://ct8g510okx14a" path="res://icon.svg" id="1_r7lit"]
+
+[node name="MainView" type="Control" node_paths=PackedStringArray("ItemTree")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jm0uc")
+ItemTree = NodePath("HSplitContainer/ItemTree")
+
+[node name="HSplitContainer" type="HSplitContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+split_offset = 239
+
+[node name="ItemTree" type="Tree" parent="HSplitContainer"]
+offset_right = 239.0
+offset_bottom = 648.0
+
+[node name="ThingsPanel" type="Panel" parent="HSplitContainer"]
+visible = false
+offset_left = 251.0
+offset_right = 1152.0
+offset_bottom = 617.0
+
+[node name="VSplitContainer" type="VSplitContainer" parent="HSplitContainer/ThingsPanel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+split_offset = 449
+
+[node name="VSplitContainer" type="VSplitContainer" parent="HSplitContainer/ThingsPanel/VSplitContainer"]
+offset_right = 901.0
+offset_bottom = 449.0
+split_offset = 78
+
+[node name="ExitsPanel" type="Panel" parent="HSplitContainer/ThingsPanel/VSplitContainer/VSplitContainer"]
+offset_right = 901.0
+offset_bottom = 78.0
+
+[node name="ItemList" type="ItemList" parent="HSplitContainer/ThingsPanel/VSplitContainer/VSplitContainer/ExitsPanel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+item_count = 1
+item_0/text = "Exit West"
+
+[node name="ItemsPanel" type="Panel" parent="HSplitContainer/ThingsPanel/VSplitContainer/VSplitContainer"]
+offset_top = 90.0
+offset_right = 901.0
+offset_bottom = 449.0
+
+[node name="ItemList" type="ItemList" parent="HSplitContainer/ThingsPanel/VSplitContainer/VSplitContainer/ItemsPanel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+select_mode = 1
+item_count = 3
+item_0/text = "Item 1"
+item_0/icon = ExtResource("1_r7lit")
+item_1/text = "Beep"
+item_1/icon = ExtResource("1_r7lit")
+item_2/text = "Boop"
+item_2/icon = ExtResource("1_r7lit")
+
+[node name="ActionsPanel" type="Panel" parent="HSplitContainer/ThingsPanel/VSplitContainer"]
+offset_top = 461.0
+offset_right = 901.0
+offset_bottom = 617.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HSplitContainer/ThingsPanel/VSplitContainer/ActionsPanel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Actions"
+
+[node name="LogPanel" type="Panel" parent="HSplitContainer"]
+offset_left = 251.0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HSplitContainer/LogPanel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "There are things here"

@@ -1,0 +1,57 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+_global_script_classes=[{
+"base": "Resource",
+"class": &"GameItem",
+"language": &"GDScript",
+"path": "res://Scenes/GameItem/GameItem.gd"
+}, {
+"base": "Node",
+"class": &"GameItemNode",
+"language": &"GDScript",
+"path": "res://Scenes/GameItem/GameItemNode.gd"
+}, {
+"base": "Control",
+"class": &"TopBar",
+"language": &"GDScript",
+"path": "res://Scenes/TopBar/TopBar.gd"
+}, {
+"base": "Control",
+"class": &"WorldView",
+"language": &"GDScript",
+"path": "res://Scenes/WorldView/WorldView.gd"
+}]
+_global_script_class_icons={
+"GameItem": "",
+"GameItemNode": "",
+"TopBar": "",
+"WorldView": ""
+}
+
+[application]
+
+config/name="Furry Hangout"
+run/main_scene="res://Scenes/NetworkConnection/NetworkConnection.tscn"
+config/features=PackedStringArray("4.0", "Forward Plus")
+config/icon="res://icon.svg"
+
+[autoload]
+
+MultiplayerManager="*res://Scenes/Managers/MultiplayerManager/MultiplayerManager.tscn"
+DevConsole="*res://Scenes/Managers/DevConsole/DevConsole.tscn"
+ItemFactoryManager="*res://Scenes/Managers/ItemFactoryManager/ItemFactoryManager.tscn"
+
+[input]
+
+toggle_dev_console={
+"deadzone": 0.5,
+"events": []
+}

@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://do4k0g2shx3hj"]
+
+[ext_resource type="Script" path="res://Scenes/Managers/ItemFactoryManager/ItemFactoryManager.gd" id="1_u1oju"]
+[ext_resource type="PackedScene" uid="uid://bmey8t0ankhx4" path="res://Scenes/GameItem/GameItemNode.tscn" id="2_twe1u"]
+
+[node name="ItemFactoryManager" type="Node"]
+script = ExtResource("1_u1oju")
+game_item_node = ExtResource("2_twe1u")
