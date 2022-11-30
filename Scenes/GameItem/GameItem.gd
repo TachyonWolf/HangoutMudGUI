@@ -9,13 +9,22 @@ enum GameItemType
 	Writing
 }
 
+enum ParentRelationship
+{
+	Inside,
+	On,
+	Outmost,
+	Held
+}
 
 @export
-var item_name := "A thing(No name)"
+var item_name := "A thing - No name"
 @export
 var item_type : GameItemType
 @export
 var instance_name : String
+@export
+var description : String
 @export
 var log : bool
 @export
@@ -30,5 +39,9 @@ var values := {}
 var statuses := []
 @export
 var sub_items : Array[GameItem]
+@export
+var parent_relationship : ParentRelationship
+@export
+var location : String
 @export
 var behavures := []

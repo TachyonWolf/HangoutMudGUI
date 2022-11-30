@@ -1,13 +1,7 @@
 extends Node
 class_name GameItemNode
 
-enum SubRelationship
-{
-	Inside,
-	On,
-	Outmost,
-	Held
-}
+
 
 @export
 var game_item : GameItem
@@ -18,13 +12,11 @@ var sprite : ImageTexture
 @export 
 var sub_items : Array[GameItemNode]
 
-@export
-var subrelationship : SubRelationship
+var parent_relationship : GameItem.ParentRelationship
 
-func init(new_game_item : GameItem, subrelation : SubRelationship):
+func init(new_game_item : GameItem):
 	if(!new_game_item):
 		return
-	
 	#set name
 	var inst_name = new_game_item.instance_name
 	if(inst_name):
@@ -32,7 +24,7 @@ func init(new_game_item : GameItem, subrelation : SubRelationship):
 	else:
 		name = new_game_item.item_name
 	
-	subrelationship = subrelation
+	parent_relationship = new_game_item.parent_relationship
 	game_item = new_game_item
 	if(multiplayer.is_server()):
 		if(game_item.sub_items):
@@ -40,7 +32,7 @@ func init(new_game_item : GameItem, subrelation : SubRelationship):
 				var new_node = ItemFactoryManager.make_item()
 				add_child(new_node)
 				sub_items.append(new_node)
-				new_node.init(content, SubRelationship.Inside)
+				new_node.init(content)
 	else:
 		rpc_id(1, "request_sub_items")
 

@@ -20,7 +20,7 @@ func _ready():
 		multiplayer.peer_connected.connect(play_joined)
 		var world_res : GameItem 
 		world_res = load(savegame_path)
-		world_node.init(world_res, GameItemNode.SubRelationship.Outmost)
+		world_node.init(world_res)
 		main_view.build_full_tree(world_node)
 		print(world_res.instance_name)
 
@@ -38,5 +38,5 @@ func play_joined(id):
 @rpc(authority, call_remote, reliable, 2)
 func world_data(data):
 	var world_res : GameItem = dict_to_inst(data)
-	world_node.init(world_res, GameItemNode.SubRelationship.Outmost)
+	world_node.init(world_res)
 	main_view.build_full_tree(world_node)
