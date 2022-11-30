@@ -28,13 +28,16 @@ func init(new_game_item : GameItem):
 	game_item = new_game_item
 	if(multiplayer.is_server()):
 		if(game_item.sub_items):
-			for content in game_item.sub_items:
-				var new_node = ItemFactoryManager.make_item()
-				add_child(new_node)
-				sub_items.append(new_node)
-				new_node.init(content)
+			for item_res in game_item.sub_items:
+				make_child_node(item_res)
 	else:
 		rpc_id(1, "request_sub_items")
+
+func make_child_node(item_res):
+	var new_node = ItemFactoryManager.make_item()
+	add_child(new_node)
+	sub_items.append(new_node)
+	new_node.init(item_res)
 
 func set_image():
 	pass
@@ -61,12 +64,8 @@ func drop_item(game_item):
 #		drop all not breakables
 #
 
-
 func drop_all_items(destory_non_sturdy : bool):
 	pass
-
-
-
 
 @rpc(any_peer)
 func request_sub_items():
@@ -74,4 +73,10 @@ func request_sub_items():
 	if(multiplayer.is_server()):
 		print("Got request from:", str(requester_id))
 		for item in sub_items:
-			pass
+			var data = inst_to_dict(item.game_item)
+			rpc_id(requester_id, "server_to_client_make_node", data)
+
+@rpc(authority, call_remote, reliable, 5)
+func server_to_client_make_node(item_data):
+	var item_res : GameItem = dict_to_inst(item_data)
+	make_child_node(item_res)

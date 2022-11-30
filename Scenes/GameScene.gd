@@ -16,13 +16,13 @@ func _ready():
 #	print(world_node.game_item.item_name)
 	top_bar.save_reqested.connect(save)
 	top_bar.refresh_reqested.connect(refresh)
-	if(multiplayer.is_server() && ResourceLoader.exists(savegame_path)):
+	if(multiplayer.is_server()):
+		if(ResourceLoader.exists(savegame_path)):
+			var world_res : GameItem 
+			world_res = load(savegame_path)
+			world_node.init(world_res)
 		multiplayer.peer_connected.connect(play_joined)
-		var world_res : GameItem 
-		world_res = load(savegame_path)
-		world_node.init(world_res)
 		main_view.build_full_tree(world_node)
-		print(world_res.instance_name)
 
 func save():
 	var world_item = world_node.game_item;
