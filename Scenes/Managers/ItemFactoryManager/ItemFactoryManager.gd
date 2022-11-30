@@ -7,4 +7,5 @@ var game_item_node : PackedScene
 
 
 func make_item() -> GameItemNode:
-	return game_item_node.instantiate()
+	var node = game_item_node.instantiate()
+	return node

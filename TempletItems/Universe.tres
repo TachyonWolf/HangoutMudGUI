@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://dhwcsow0gliu8"]
+
+[ext_resource type="Script" path="res://Scenes/GameItem/GameItem.gd" id="1_udk4q"]
+
+[resource]
+script = ExtResource("1_udk4q")
+item_name = "Universe"
+item_type = 0
+instance_name = "Default Universe"
+log = true
+owner = "Admin"
+maker = "Admin"
+tags = ["Indestrucable", "Unreachable"]
+values = null
+statuses = null
+sub_items = null
+behavures = null

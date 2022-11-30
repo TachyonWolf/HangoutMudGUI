@@ -13,8 +13,6 @@ func _ready():
 func _process(delta):
 	pass
 
-
-
 func build_full_tree(game_node : GameItemNode):
 	ItemTree.clear()
 	admin_node_build(game_node, null)
@@ -30,9 +28,7 @@ func admin_node_build(game_node : GameItemNode, parent_node):
 		new_tree_item.set_text(0, game_node.game_item.item_name)
 	new_tree_item.set_custom_color(0, get_color(game_node))
 	
-	for items in game_node.covering_items:
-		admin_node_build(items, new_tree_item)
-	for items in game_node.contained_items:
+	for items in game_node.sub_items:
 		admin_node_build(items, new_tree_item)
 
 func get_color(game_node: GameItemNode) -> Color:

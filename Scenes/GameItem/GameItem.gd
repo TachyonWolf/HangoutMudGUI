@@ -29,8 +29,6 @@ var values := {}
 @export
 var statuses := []
 @export
-var contents : Array[GameItem]
-@export
-var coverings : Array[GameItem]
+var sub_items : Array[GameItem]
 @export
 var behavures := []
