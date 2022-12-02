@@ -24,7 +24,7 @@ func _ready():
 		else:
 			world_node.init(world_node.game_item)
 		multiplayer.peer_connected.connect(play_joined)
-		main_view.build_full_tree(world_node)
+	main_view.build_full_tree(world_node)
 
 func save():
 	var world_item = world_node.game_item;

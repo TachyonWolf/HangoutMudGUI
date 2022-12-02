@@ -1,7 +1,7 @@
 extends Node
 class_name GameItemNode
 
-
+signal data_updated
 
 @export
 var game_item : GameItem
@@ -38,6 +38,8 @@ func init(new_game_item : GameItem):
 				make_child_node(item_res)
 	else:
 		rpc_id(1, "request_sub_items")
+	
+	data_updated.emit()
 
 func make_child_node(item_res):
 	var new_node = ItemFactoryManager.make_item()
