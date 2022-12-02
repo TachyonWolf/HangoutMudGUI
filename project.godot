@@ -9,6 +9,11 @@
 config_version=5
 
 _global_script_classes=[{
+"base": "Action",
+"class": &"AMake",
+"language": &"GDScript",
+"path": "res://Scenes/Actions/Creation/AMake.gd"
+}, {
 "base": "RefCounted",
 "class": &"Action",
 "language": &"GDScript",
@@ -35,6 +40,7 @@ _global_script_classes=[{
 "path": "res://Scenes/WorldView/WorldView.gd"
 }]
 _global_script_class_icons={
+"AMake": "",
 "Action": "",
 "GameItem": "",
 "GameItemNode": "",

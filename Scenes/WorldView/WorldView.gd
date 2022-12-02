@@ -2,6 +2,9 @@ extends Control
 class_name WorldView
 
 @export
+var actions_dropdown : Control
+
+@export
 var BaseItemTree : Tree
 var tree_to_game_nodes : Dictionary
 var game_to_tree_nodes : Dictionary
@@ -76,14 +79,20 @@ func update_visibility(game_node : GameItemNode, tree_item : TreeItem):
 		tree_item.set_text(0, game_node.game_item.item_name)
 	tree_item.set_custom_color(0, get_color(game_node))
 
-
 func _on_item_tree_gui_input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
-			var items := []
+			var items : Array[String] = []
 			var item = BaseItemTree.get_selected()
 			while(item):
 				var game_node = tree_to_game_nodes[item]
 				items.append(game_node.uid)
 				item = BaseItemTree.get_next_selected(item)
-			print(items)
+			actions_dropdown.visible = true
+			actions_dropdown.size.y = (size.y/2.0)
+			actions_dropdown.build_actions_list(items)
+			if(event.position.y > size.y/2.0):
+				actions_dropdown.position = event.position - Vector2(0,size.y/2.0)
+			else:
+				actions_dropdown.position = event.position
+			
