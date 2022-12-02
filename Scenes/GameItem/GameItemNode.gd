@@ -5,7 +5,7 @@ class_name GameItemNode
 
 @export
 var game_item : GameItem
-var uid : int
+var uid : String
 
 @export
 var sprite : ImageTexture
@@ -19,21 +19,19 @@ func init(new_game_item : GameItem):
 	if(!new_game_item):
 		return
 	
-	if(!new_game_item.uid):
-		new_game_item.uid = 
-	uid = new_game_item.uid
-	if(!):
-		
-	
-	#set name
-	var inst_name = new_game_item.instance_name
-	if(inst_name):
-		name = new_game_item.instance_name
+	if(new_game_item.uid != null && new_game_item.uid != ""):
+		uid = new_game_item.uid
 	else:
-		name = new_game_item.item_name
+		new_game_item.uid = ItemManager.get_new_uid(new_game_item)
+		uid = new_game_item.uid
+	
+	name = uid
 	
 	parent_relationship = new_game_item.parent_relationship
 	game_item = new_game_item
+	
+	ItemManager.add_item(self)
+	
 	if(multiplayer.is_server()):
 		if(game_item.sub_items):
 			for item_res in game_item.sub_items:

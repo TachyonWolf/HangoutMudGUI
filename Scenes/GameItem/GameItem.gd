@@ -28,7 +28,7 @@ var sprite_path : String
 @export
 var description : String
 
-var uid : int
+var uid : String = ""
 
 @export
 var log : bool
