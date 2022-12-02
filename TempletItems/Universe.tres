@@ -1,12 +1,31 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://dhwcsow0gliu8"]
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://dhwcsow0gliu8"]
 
 [ext_resource type="Script" path="res://Scenes/GameItem/GameItem.gd" id="1_udk4q"]
+
+[sub_resource type="Resource" id="Resource_shxcn"]
+script = ExtResource("1_udk4q")
+item_name = "THE VOID"
+item_type = 0
+instance_name = null
+sprite_path = null
+description = null
+log = null
+owner = null
+maker = null
+tags = ["Indestrucable", "Unreachable"]
+values = null
+statuses = null
+sub_items = null
+parent_relationship = null
+location = null
+behavures = null
 
 [resource]
 script = ExtResource("1_udk4q")
 item_name = "Universe"
 item_type = 0
 instance_name = "Default Universe"
+sprite_path = null
 description = null
 log = true
 owner = "Admin"
@@ -14,7 +33,7 @@ maker = "Admin"
 tags = ["Indestrucable", "Unreachable"]
 values = null
 statuses = null
-sub_items = null
+sub_items = [SubResource("Resource_shxcn")]
 parent_relationship = 2
 location = null
 behavures = null

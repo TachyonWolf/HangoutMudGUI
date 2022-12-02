@@ -19,7 +19,6 @@ top_bar = NodePath("TopBar")
 world_node = NodePath("WorldNode")
 
 [node name="HSplitContainer" type="HSplitContainer" parent="."]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -30,7 +29,6 @@ grow_vertical = 2
 split_offset = 878
 
 [node name="MainView" parent="HSplitContainer" instance=ExtResource("1_gs8r4")]
-layout_mode = 2
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
@@ -40,13 +38,11 @@ grow_horizontal = 1
 grow_vertical = 1
 
 [node name="PlayerInfo" type="Panel" parent="HSplitContainer"]
-layout_mode = 2
 offset_left = 890.0
 offset_right = 1152.0
 offset_bottom = 577.0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="HSplitContainer/PlayerInfo"]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -55,7 +51,6 @@ grow_vertical = 2
 text = "Player Info!"
 
 [node name="PlayerInput" type="LineEdit" parent="."]
-layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
@@ -67,7 +62,6 @@ grow_horizontal = 2
 grow_vertical = 0
 
 [node name="SubmitButton" type="Button" parent="."]
-layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
@@ -82,7 +76,6 @@ grow_vertical = 0
 text = "Submit"
 
 [node name="ActionOptionButton" type="OptionButton" parent="."]
-layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -96,4 +89,3 @@ grow_vertical = 0
 game_item = ExtResource("4_d6xye")
 
 [node name="TopBar" parent="." instance=ExtResource("5_sj26c")]
-layout_mode = 1

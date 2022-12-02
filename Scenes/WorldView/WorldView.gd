@@ -18,7 +18,7 @@ func build_full_tree(game_node : GameItemNode):
 	admin_node_build(game_node, null)
 
 func admin_node_build(game_node : GameItemNode, parent_node):
-	var new_tree_item = ItemTree.create_item(parent_node)
+	var new_tree_item := ItemTree.create_item(parent_node)
 	if(!game_node.game_item):
 		return
 	

@@ -21,6 +21,8 @@ func _ready():
 			var world_res : GameItem 
 			world_res = load(savegame_path)
 			world_node.init(world_res)
+		else:
+			world_node.init(world_node.game_item)
 		multiplayer.peer_connected.connect(play_joined)
 		main_view.build_full_tree(world_node)
 
@@ -39,4 +41,3 @@ func play_joined(id):
 func world_data(data):
 	var world_res : GameItem = dict_to_inst(data)
 	world_node.init(world_res)
-	main_view.build_full_tree(world_node)

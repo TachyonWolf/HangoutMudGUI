@@ -18,7 +18,7 @@ func join_server(ip : String, port : int) -> bool:
 	_peer = ENetMultiplayerPeer.new()
 	DevConsole.log_network("Joining to server at: " + ip + ":" + str(port))
 	var error = _peer.create_client(ip, port)
-	if(error == 0):
+	if(error == OK):
 		DevConsole.log_network("Joined with error code:" + str(error))
 	else:
 		return false

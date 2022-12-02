@@ -24,7 +24,12 @@ var item_type : GameItemType
 @export
 var instance_name : String
 @export
+var sprite_path : String
+@export
 var description : String
+
+var uid : int
+
 @export
 var log : bool
 @export
@@ -45,3 +50,5 @@ var parent_relationship : ParentRelationship
 var location : String
 @export
 var behavures := []
+
+

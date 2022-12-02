@@ -5,6 +5,7 @@ class_name GameItemNode
 
 @export
 var game_item : GameItem
+var uid : int
 
 @export
 var sprite : ImageTexture
@@ -17,6 +18,13 @@ var parent_relationship : GameItem.ParentRelationship
 func init(new_game_item : GameItem):
 	if(!new_game_item):
 		return
+	
+	if(!new_game_item.uid):
+		new_game_item.uid = 
+	uid = new_game_item.uid
+	if(!):
+		
+	
 	#set name
 	var inst_name = new_game_item.instance_name
 	if(inst_name):
